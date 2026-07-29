@@ -1,8 +1,8 @@
 package com.flamingo.qa.tests;
 
-import com.flamingo.qa.clients.AuthClient;
-import com.flamingo.qa.clients.BookingClient;
-import com.flamingo.qa.config.TestData;
+import com.flamingo.qa.pages.api.AuthClient;
+import com.flamingo.qa.pages.api.BookingClient;
+import com.flamingo.qa.testdata.APITestData;
 import com.flamingo.qa.models.AuthResponse;
 import com.flamingo.qa.models.Booking;
 import io.restassured.response.Response;
@@ -11,8 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.flamingo.qa.config.TestData.VALID_PASSWORD;
-import static com.flamingo.qa.config.TestData.VALID_USERNAME;
+import static com.flamingo.qa.testdata.APITestData.VALID_PASSWORD;
+import static com.flamingo.qa.testdata.APITestData.VALID_USERNAME;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("api")
@@ -46,7 +46,7 @@ class BookingNegativeTest {
     @Test
     @DisplayName("Update booking with invalid token")
     void updateBooking_withInvalidToken() {
-        Booking booking = TestData.defaultBooking();
+        Booking booking = APITestData.defaultBooking();
         int bookingId = bookingClient.create(booking).jsonPath().getInt("bookingid");
 
         Response response = bookingClient.update(bookingId, booking, "invalid-token-12345");
@@ -57,7 +57,7 @@ class BookingNegativeTest {
     @Test
     @DisplayName("Delete booking with invalid token")
     void deleteBooking_withInvalidToken() {
-        Booking booking = TestData.defaultBooking();
+        Booking booking = APITestData.defaultBooking();
         int bookingId = bookingClient.create(booking).jsonPath().getInt("bookingid");
 
         Response response = bookingClient.delete(bookingId, "invalid-token-12345");

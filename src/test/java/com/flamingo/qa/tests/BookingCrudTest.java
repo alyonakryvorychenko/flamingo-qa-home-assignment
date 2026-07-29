@@ -1,8 +1,8 @@
 package com.flamingo.qa.tests;
 
-import com.flamingo.qa.clients.AuthClient;
-import com.flamingo.qa.clients.BookingClient;
-import com.flamingo.qa.config.TestData;
+import com.flamingo.qa.pages.api.AuthClient;
+import com.flamingo.qa.pages.api.BookingClient;
+import com.flamingo.qa.testdata.APITestData;
 import com.flamingo.qa.models.AuthResponse;
 import com.flamingo.qa.models.Booking;
 import io.restassured.response.Response;
@@ -11,8 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.flamingo.qa.config.TestData.VALID_PASSWORD;
-import static com.flamingo.qa.config.TestData.VALID_USERNAME;
+import static com.flamingo.qa.testdata.APITestData.VALID_PASSWORD;
+import static com.flamingo.qa.testdata.APITestData.VALID_USERNAME;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("api")
@@ -31,7 +31,7 @@ class BookingCrudTest {
     @Test
     @DisplayName("Create new booking with valid data")
     void createBooking_withValidData() {
-        Booking booking = TestData.defaultBooking();
+        Booking booking = APITestData.defaultBooking();
 
         Response response = bookingClient.create(booking);
 
@@ -45,7 +45,7 @@ class BookingCrudTest {
     @Test
     @DisplayName("Get booking by id returns matching data")
     void getBookingById_existingId() {
-        Booking booking = TestData.defaultBooking();
+        Booking booking = APITestData.defaultBooking();
         int bookingId = bookingClient.create(booking).jsonPath().getInt("bookingid");
 
         Response response = bookingClient.getById(bookingId);
@@ -59,7 +59,7 @@ class BookingCrudTest {
     @Test
     @DisplayName("Update booking name, price and checkout date")
     void updateBooking_withValidToken() {
-        Booking booking = TestData.defaultBooking();
+        Booking booking = APITestData.defaultBooking();
         int bookingId = bookingClient.create(booking).jsonPath().getInt("bookingid");
 
         Booking updatedBooking = booking.toBuilder()
@@ -79,7 +79,7 @@ class BookingCrudTest {
     @Test
     @DisplayName("Delete booking with valid token ")
     void deleteBooking_withValidToken() {
-        Booking booking = TestData.defaultBooking();
+        Booking booking = APITestData.defaultBooking();
         int bookingId = bookingClient.create(booking).jsonPath().getInt("bookingid");
 
         Response response = bookingClient.delete(bookingId, token);

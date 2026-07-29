@@ -1,11 +1,11 @@
-package com.flamingo.qa.config;
+package com.flamingo.qa.testdata;
 
 import com.flamingo.qa.models.Booking;
 import com.flamingo.qa.models.BookingDates;
 
-public final class TestData {
+public final class APITestData {
 
-    private TestData() {
+    private APITestData() {
     }
 
     public static final String VALID_USERNAME = "admin";

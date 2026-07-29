@@ -1,4 +1,4 @@
-package com.flamingo.qa.clients;
+package com.flamingo.qa.pages.api;
 
 import com.flamingo.qa.config.ConfigProvider;
 import com.flamingo.qa.models.AuthRequest;

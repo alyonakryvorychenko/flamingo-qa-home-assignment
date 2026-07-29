@@ -1,14 +1,14 @@
 package com.flamingo.qa.tests;
 
-import com.flamingo.qa.clients.AuthClient;
+import com.flamingo.qa.pages.api.AuthClient;
 import com.flamingo.qa.models.AuthResponse;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.flamingo.qa.config.TestData.VALID_PASSWORD;
-import static com.flamingo.qa.config.TestData.VALID_USERNAME;
+import static com.flamingo.qa.testdata.APITestData.VALID_PASSWORD;
+import static com.flamingo.qa.testdata.APITestData.VALID_USERNAME;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Tag("api")
