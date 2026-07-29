@@ -37,7 +37,6 @@ Order: REST API first, then GraphQL, UI last (as recommended by the assignment),
 - **Web Tables search: dependency on table state.** The search test relies on DemoQA's default rows. To avoid interference from earlier tests (e.g. a deleted default row), the page is force-refreshed (`refresh()`) before searching to restore the table to its initial state.
 
 ## What I Would Add With More Time
-- Host the Allure report on GitHub Pages with history/trend graphs across runs, instead of only publishing it as a downloadable CI artifact.
 - Add a retry mechanism for UI tests, since they depend on a public third-party demo site (DemoQA) that can occasionally be slow or flaky.
 - Expand negative/edge-case coverage on the UI side (e.g. invalid email format, boundary values for age/salary) beyond the empty-form validation scenario.
 - Add screenshots on success too (not just failure), attached to Allure, for easier visual review of what each test actually did.
