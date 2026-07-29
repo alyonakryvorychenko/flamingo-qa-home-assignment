@@ -1,0 +1,7 @@
+# TODO: verify real query field name and id argument type via introspection
+query SingleEntityById($id: ID!) {
+  product(id: $id) {
+    id
+    name
+  }
+}

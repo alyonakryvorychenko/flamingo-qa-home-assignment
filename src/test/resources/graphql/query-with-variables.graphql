@@ -1,0 +1,8 @@
+# TODO: verify actual filter field name/type via introspection (avoid string interpolation, use variables)
+query ProductsByVariable($slug: String!) {
+  products(where: { slug: $slug }) {
+    id
+    name
+    slug
+  }
+}

@@ -1,6 +1,9 @@
 target/
-*.class
 .idea/
-out/
 *.iml
+.vscode/
+allure-results/
+allure-report/
+*.log
+.DS_Store
 .env

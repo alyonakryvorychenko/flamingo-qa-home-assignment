@@ -1,0 +1,6 @@
+# Intentionally malformed (unbalanced braces) to trigger a GraphQL syntax error response
+query MalformedQuery {
+  products(first: 1) {
+    id
+    name
+}

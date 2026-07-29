@@ -1,0 +1,7 @@
+# TODO: verify real query field name via introspection (__type(name: "Query"))
+query ListWithPagination($first: Int!) {
+  products(first: $first) {
+    id
+    name
+  }
+}

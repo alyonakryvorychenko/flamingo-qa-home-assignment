@@ -1,0 +1,7 @@
+# Intentionally references a field that should not exist in the schema, to trigger a GraphQL validation error
+query NonExistentField {
+  products(first: 1) {
+    id
+    thisFieldDoesNotExist
+  }
+}
