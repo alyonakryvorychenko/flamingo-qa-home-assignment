@@ -124,6 +124,13 @@
                     <groups>${groups}</groups>
                 </configuration>
             </plugin>
+
+            <!-- Used in CI to install Playwright browsers ahead of the test run (see .github/workflows/ci.yml) -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.4.1</version>
+            </plugin>
         </plugins>
     </build>
 </project>
