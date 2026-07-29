@@ -1,4 +1,4 @@
-package com.flamingo.qa.tests;
+package com.flamingo.qa.tests.graphsql;
 
 import com.flamingo.qa.pages.graphQL.GraphQLClient;
 import io.restassured.response.Response;
