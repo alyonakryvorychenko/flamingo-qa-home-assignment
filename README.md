@@ -19,6 +19,7 @@ mvn test -Dgroups="graphql"
 # Run only UI tests
 mvn test -Dgroups="ui"
 ```
+Note: `setHeadless(true)` runs Chromium without a UI — intentional for CI. For local runs with a visible browser, change it to `setHeadless(false)`.
 
 ## Test Strategy
 Order: REST API first, then GraphQL, UI last (as recommended by the assignment), to guarantee minimum coverage at each stage.
