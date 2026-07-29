@@ -117,7 +117,7 @@ public class WebTablesPage {
         searchBox.fill(query);
     }
 
-    public boolean isFieldInvalid(String fieldLocator) {
+    private boolean isFieldInvalid(String fieldLocator) {
         return (Boolean) page.locator(fieldLocator).evaluate(
                 "el => el.matches(':invalid') || getComputedStyle(el).borderColor === 'rgb(220, 53, 69)'");
     }
