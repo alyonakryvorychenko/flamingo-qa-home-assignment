@@ -3,10 +3,23 @@ name: CI
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Test suite to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - api
+          - graphql
+          - ui
 
 jobs:
   api-tests:
     name: API tests
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.suite == 'all' || github.event.inputs.suite == 'api'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +42,7 @@ jobs:
 
   graphql-tests:
     name: GraphQL tests
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.suite == 'all' || github.event.inputs.suite == 'graphql'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -51,6 +65,7 @@ jobs:
 
   ui-tests:
     name: UI tests
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.suite == 'all' || github.event.inputs.suite == 'ui'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
